@@ -1,6 +1,9 @@
 <?php
 	// INCLUDE STYLE SCRIPTS
 	function styleScripts(){
+		// CSS
+		wp_enqueue_style( 'mainStyle', get_template_directory_uri().'/assets/css/mainStyle.css', array(), false, 'all');
+		wp_enqueue_style('mainStyle');
 		// bootstrap
 		wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), false, 'all');
 		wp_enqueue_style('bootstrap');
@@ -10,9 +13,6 @@
 		// font awesome
 		wp_enqueue_style( 'font_awesome', 'https://use.fontawesome.com/releases/v5.8.2/css/all.css', array(), false, 'all');
 		wp_enqueue_style('font_awesome');
-		// CSS
-		wp_enqueue_style( 'mainStyle', get_template_directory_uri().'/assets/css/mainStyle.css', array(), false, 'all');
-		wp_enqueue_style('mainStyle');
 
 	}
 	add_action('wp_enqueue_scripts','styleScripts');

@@ -1,58 +1,5 @@
 <?php get_header(); ?>
 
-<!-- login modal -->
-<section>
-	<!-- Modal -->
-	<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-	  aria-hidden="true">
-	  	<div class="modal-dialog" role="document">
-		    <!--Content-->
-		    <div class="modal-content form-elegant">
-		      <!--Header-->
-		        <div class="modal-header text-center pb-0">
-	            	<h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
-		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          		<span aria-hidden="true">&times;</span>
-		        	</button>
-		        </div>
-		        <!--Body-->
-		      	<div class="modal-body mx-4">
-		        <!--Body-->
-		        	<div class="md-form mb-3">
-		          		<input type="email" id="Form-email1" class="form-control validate" placeholder="E-mail">
-		          	</div>
-					<div class="md-form ">
-		          		<input type="password" id="Form-pass1" class="form-control validate" placeholder="Password">
-		          		<p class="font-small blue-text d-flex justify-content-end mb-3 mt-3">Forgot <a href="#" class="blue-text ml-1">
-		             	 Password?</a></p>
-	        		</div>
-					<div class="text-center mb-3">
-		           		<button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-			        </div>
-			        	<p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
-	          			with:</p>
-
-		        	<div class="row  d-flex justify-content-center">
-						<!--Facebook-->
-						<button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center m-0"></i></button>
-						<!--Twitter-->
-						<button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter m-0"></i></button>
-						<!--Google +-->
-						<button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g m-0"></i></button>
-	        		</div>
-		        </div>
-		      <!--Footer-->
-	            <div class="modal-footer mx-5 pt-3 mb-1 pr-0">
-		        	<p class="font-small grey-text d-flex justify-content-end mb-0">Not a member? <a href="#" class="blue-text ml-1" data-toggle="modal" data-target="#modalRegisterForm" data-dismiss="modal" aria-label="Close">Sign Up</a></p>
-		        </div>
-	    	</div>
-	    	<!--/.Content-->
-	    </div>
-	</div>
-	<!-- Modal -->
-</section>
-<!-- End of login modal -->
-
 <!-- top section start-->
 <?php if ( get_theme_mod('homepage_main_setting') == 'thumbnail_slider' ) { ?>
 		<section class="top-section2 pt-5 pb-5">
@@ -72,8 +19,6 @@
 				                        <div class="tab-pane fade show active" id="post-1" role="tabpanel" aria-labelledby="post-1-tab">
 				                            <!-- Single Feature Post -->
 				                            <div class="single-feature-post video-post bg-img" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
-				                                <!-- Play Button -->
-				                                <!-- <a href="#" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a> -->
 
 				                                <!-- Post Content -->
 				                                <div class="post-content">
@@ -91,7 +36,7 @@
 				                                    <!-- <a href="#" class="post-cata">React</a> -->
 				                                    <a href="single-post.html" class="post-title"><?php the_title(); ?></a>
 				                                    <div class="post-meta d-flex">
-				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></a>
+				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
 				                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></a>
 				                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
 				                                    </div>
@@ -110,7 +55,7 @@
 				                                    <a href="#" class="post-cata">React</a>
 				                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
 				                                    <div class="post-meta d-flex">
-				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> 25</a>
+				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
 				                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
 				                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
 				                                    </div>
@@ -146,7 +91,7 @@
 						                                    <div class="post-content">
 						                                        <h6 class="post-title"><?php the_title(); ?></h6>
 						                                        <div class="post-meta d-flex justify-content-between">
-						                                            <span><i class="far fa-comments" aria-hidden="true"></i><?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></span>
+						                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
 						                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
 						                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 19</span>
 						                                        </div>
@@ -161,12 +106,12 @@
 					                                <!-- Single Blog Post -->
 					                                <div class="single-blog-post style-2 d-flex align-items-center">
 					                                    <div class="post-thumbnail">
-					                                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/22.jpg" alt="">
+					                                        <img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
 					                                    </div>
 					                                    <div class="post-content">
 					                                        <h6 class="post-title"><?php the_title(); ?></h6>
 					                                        <div class="post-meta d-flex justify-content-between">
-					                                            <span><i class="far fa-comments" aria-hidden="true"></i><?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></span>
+					                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
 					                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
 					                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 84</span>
 					                                        </div>
@@ -432,7 +377,6 @@
 			$popularpost = new WP_Query( array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
 			if ( have_posts() ):
 			while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
-			
 				<div class="col-3 ">
 					<div class="wrapper">
 						<div class="topimage">
@@ -459,7 +403,6 @@
 						</div>
 					</div>
 				</div>
-			
 			<?php 	
 				endwhile;
 				else :

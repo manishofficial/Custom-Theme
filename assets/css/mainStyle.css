@@ -2,7 +2,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    margin-top: 80px!important;
+    margin-top: 55px!important;
 }
 /*section .topsection{
     padding-top: 80px
@@ -65,13 +65,13 @@ button#myBtn:focus {
     z-index: 0;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.p-0 {
     width: 100%;
     top: 0;
     z-index: 999;
     color: black!important;
     box-shadow: 0 2px 16px 0 rgba(189, 188, 188, 0.1);
-    padding: 0px 120px;
+    /*padding: 0px 120px;*/
 }
 
 /*img.img-fluid.logo {
@@ -2230,6 +2230,51 @@ textarea.form-control::placeholder,input.form-control.forma1::placeholder {
     font-size: 16px;
 }
 /*share buttons two end*/
+
+/* Page Style start*/
+.bg.mt-5{
+    padding: 113px 0px 115px;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.top.heading h2{
+    font-size: 40px;
+    color: hsl(0, 0%, 107%);
+    letter-spacing: 2px;
+    font-family: serif;
+}
+
+.sub-heading h4{
+    font-size: 18px;
+    color: #202124;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 30px 0 8px;
+    text-transform: capitalize;
+    font-family: serif;
+}
+
+.privacy-policy-text p{
+    margin: 0 0 16px;
+    color: #5f6368;
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+.text li {
+    margin: 0 0 16px;
+    color: #5f6368;
+    line-height: 1.5;
+    font-family: Roboto,sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+/* Page Style end*/
 
 /*content page end*/
 @media only screen and (max-width: 768px){

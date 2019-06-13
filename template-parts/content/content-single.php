@@ -13,7 +13,7 @@
         <div class="icons">
           <div class="icon-tray"><i class="fas fa-user"></i><span class=""><?php the_author(); ?></span></div>
           <div class="icon-tray"><i class="fas fa-clock"></i><span class=""><?php the_time('jS F, Y'); ?></span></div>
-          <div class="icon-tray"><i class="fas fa-comments"></i><span class=""><?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></span></div>
+          <div class="icon-tray"><i class="fas fa-comments"></i><span class=""><?php comments_popup_link('0 &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></span></div>
           <div class="icon-tray"><i class="fas fa-eye"></i><span class=""><?php echo wpb_get_post_views( get_the_ID() ); ?></span></div>
         </div>
       </div>

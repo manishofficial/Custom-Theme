@@ -1,27 +1,29 @@
 <?php get_header(); ?>
 
-<div id="box">
+  	<?php if(have_posts()) : ?><?php while(have_posts()) : the_post(); ?>
 
-  <?php if(have_posts()) : ?><?php while(have_posts()) : the_post(); ?>
+		<section>
+			<div class="container-fluid p-0">
+				<div class="bg mt-5" style="background-image: url('<?php the_post_thumbnail_url(); ?>');">
+					<div class="container">
+						<div class="top heading">
+							<h2><?php the_title(); ?></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <div class="post">
+		<Section class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<?php the_content(); ?>
+					</div>
+				</div>
+			</div>
+		</Section>
+	<?php endwhile; endif; ?>
 
-    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-  <div class="entry">
-
-    <?php the_content(); ?>
-
-
-  </div>
-</div>
-
-<?php endwhile; ?>
-  
-</div>
-<?php endif; ?>
-
-</div>
-
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

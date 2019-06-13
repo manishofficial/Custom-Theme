@@ -54,3 +54,10 @@ function wpb_get_post_views($postID){
     }
     return $count.' Views';
 }
+
+//Li Class for Nav
+function add_classes_on_li($classes, $item, $args) {
+  $classes[] = 'nav-item1';
+  return $classes;
+}
+add_filter('nav_menu_css_class','add_classes_on_li',1,3);

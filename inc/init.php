@@ -6,6 +6,8 @@ require get_template_directory() . '/inc/functions/nav-menu.php';
 
 /* Register Widgets */
 require get_template_directory() . '/inc/functions/widgets-function.php';
+/* Register post liker */
+// require get_template_directory() . '/inc/functions/post-like-function.php';
 
 /* Customization files */
 require get_template_directory() . '/inc/customizer/header/customizer-header.php';
