@@ -8,12 +8,12 @@ function ip_post_likes($content) {
 			<ul class="likes">
 				<li class="likes__item likes__item--like">
 					<a href="<?php echo add_query_arg('post_action', 'like'); ?>">
-						Like (<?php echo ip_get_like_count('likes') ?>)
+						<i class="far fa-thumbs-up"></i> (<?php echo ip_get_like_count('likes') ?>)
 					</a>
 				</li>
 				<li class="likes__item likes__item--dislike">
 					<a href="<?php echo add_query_arg('post_action', 'dislike'); ?>">
-						Dislike (<?php echo ip_get_like_count('dislikes') ?>)
+						<i class="fa fa-thumbs-down"></i> (<?php echo ip_get_like_count('dislikes') ?>)
 					</a>
 				</li>
 			</ul>
@@ -21,7 +21,7 @@ function ip_post_likes($content) {
 
 		$output = ob_get_clean();
 
-		return $output . $content;
+		return $content . $output;
 	}else {
 		return $content;
 	}

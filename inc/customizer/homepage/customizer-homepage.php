@@ -69,20 +69,20 @@ function homepage_customization_register( $wp_customize ) {
 	));
 
 	// POST Text Limit
-	$wp_customize->add_setting( 'homepage_posts_text_limit_setting',array(
-		'default' => '20',
-		'transport' => 'refresh', // Optional. 'refresh' or 'postMessage'. Default: 'refresh'
-	    'type' => 'theme_mod', // Optional. 'theme_mod' or 'option'. Default: 'theme_mod'
-	    'capability' => 'edit_theme_options',
-	) );
-	$wp_customize->add_control(new WP_Customize_control($wp_customize,'homepage_posts_text_limit_setting',
-		array(
-			'label'		=> 'Show Posts text Limit',
-			'section'	=> 'homepage_posts_section',
-			'settings' 	=> 'homepage_posts_text_limit_setting',
-			'type'		=> 'number'
-		) 
-	));
+	// $wp_customize->add_setting( 'homepage_posts_text_limit_setting',array(
+	// 	'default' => '20',
+	// 	'transport' => 'refresh', // Optional. 'refresh' or 'postMessage'. Default: 'refresh'
+	//     'type' => 'theme_mod', // Optional. 'theme_mod' or 'option'. Default: 'theme_mod'
+	//     'capability' => 'edit_theme_options',
+	// ) );
+	// $wp_customize->add_control(new WP_Customize_control($wp_customize,'homepage_posts_text_limit_setting',
+	// 	array(
+	// 		'label'		=> 'Show Posts text Limit',
+	// 		'section'	=> 'homepage_posts_section',
+	// 		'settings' 	=> 'homepage_posts_text_limit_setting',
+	// 		'type'		=> 'number',
+	// 	) 
+	// ));
 
 	//POST Read more text
 	$wp_customize->add_setting( 'homepage_posts_readmore_setting',array(

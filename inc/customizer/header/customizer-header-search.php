@@ -35,34 +35,25 @@ function header_search_customization_register( $wp_customize ) {
 		) 
 	));
 	/* Search Bar Size */
-	$wp_customize->add_setting( 'header_search_size_setting',array(
-		'default' => '110',
-		'transport' => 'refresh', // Optional. 'refresh' or 'postMessage'. Default: 'refresh'
-	    'type' => 'theme_mod', // Optional. 'theme_mod' or 'option'. Default: 'theme_mod'
-	    'capability' => 'edit_theme_options',
-	) );
-	$wp_customize->add_control( 'header_search_size_setting', array(
-	  'type' => 'range',
-	  'section' => 'header_search_section',
-	  'label' => __( 'Header Size' ),
-	  'description' => __( 'Select header size between 60 to 200.' ),
-	  'input_attrs' => array(
-	    'min' => 60,
-	    'max' => 200,
-	    'step' => 2,
+	// $wp_customize->add_setting( 'header_search_size_setting',array(
+	// 	'default' => '110',
+	// 	'transport' => 'refresh', // Optional. 'refresh' or 'postMessage'. Default: 'refresh'
+	//     'type' => 'theme_mod', // Optional. 'theme_mod' or 'option'. Default: 'theme_mod'
+	//     'capability' => 'edit_theme_options',
+	// ) );
+	// $wp_customize->add_control( 'header_search_size_setting', array(
+	//   'type' => 'range',
+	//   'section' => 'header_search_section',
+	//   'label' => __( 'Header Size' ),
+	//   'description' => __( 'Select header size between 60 to 200.' ),
+	//   'input_attrs' => array(
+	//     'min' => 60,
+	//     'max' => 200,
+	//     'step' => 2,
 
-	  ),
-	) );
+	//   ),
+	// ) );
 }
 add_action( 'customize_register', 'header_search_customization_register' );
 
-function header_search_style(){?>
-	<style type="text/css">
-		.search-feed input[type="text"]{
-			width: <?php echo get_theme_mod('header_search_size_setting'); ?>px;
-		}
-		
-	</style>
-<?php
-}
-add_action('wp_head','header_search_style');
+

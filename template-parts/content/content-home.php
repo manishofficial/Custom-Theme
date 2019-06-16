@@ -1,139 +1,153 @@
 <?php get_header(); ?>
-
 <!-- top section start-->
 <?php if ( get_theme_mod('homepage_main_setting') == 'thumbnail_slider' ) { ?>
-		<section class="top-section2 pt-5 pb-5">
+		<section class="top-section2 pt-5">
 			<section class="hero--area section-padding-80">
 		        <div class="container">
 		            <div class="row no-gutters">
-			                <div class="col-12 col-md-7 col-lg-9">
-			                    <div class="tab-content">
-				                    <?php $args = array(
-									   'category_name'=>'latest-posts',
-									    'posts_per_page'=> 10,
-									);
-									$query = new WP_Query( $args );	
-									if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
+		                <div class="col-12 col-md-7 col-lg-9">
+		                    <div class="tab-content">
+			                    <?php $args = array(
+								   'category_name'=>'latest-posts',
+								    'posts_per_page'=> 10,
+								);
+								$query = new WP_Query( $args );	
+								if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
 
-									<?php if ( $query->current_post + 1 == '1' ) { ?>
-				                        <div class="tab-pane fade show active" id="post-1" role="tabpanel" aria-labelledby="post-1-tab">
-				                            <!-- Single Feature Post -->
-				                            <div class="single-feature-post video-post bg-img" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
+								<?php if ( $query->current_post + 1 == '1' ) { ?>
+			                        <div class="tab-pane fade show active" id="post-1" role="tabpanel" aria-labelledby="post-1-tab">
+			                            <!-- Single Feature Post -->
+			                            <div class="single-feature-post video-post bg-img" style="background-image: url(<?php 
+			                            	if (has_post_thumbnail()) {
+			                            		the_post_thumbnail_url();
+			                            	}else{
+			                            		echo get_template_directory_uri().'/assets/images/noimageavailable.png';
+			                            	}
+			                            	 ?>)">
 
-				                                <!-- Post Content -->
-				                                <div class="post-content">
-				                                	<?php
-													$categories = get_the_category();
-													$comma      = ', ';
-													$output     = '';
-													
-													if ( $categories ) {
-														foreach ( $categories as $category ) {
-															$output .= '<a class="post-cata" href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a>' . $comma;
-														}
-														echo trim( $output, $comma );
-													} ?>
-				                                    <!-- <a href="#" class="post-cata">React</a> -->
-				                                    <a href="single-post.html" class="post-title"><?php the_title(); ?></a>
-				                                    <div class="post-meta d-flex">
-				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
-				                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></a>
-				                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
+			                                <!-- Post Content -->
+			                                <div class="post-content">
+			                                	<?php
+												$categories = get_the_category();
+												$comma      = ', ';
+												$output     = '';
+												
+												if ( $categories ) {
+													foreach ( $categories as $category ) {
+														$output .= '<a class="post-cata" href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a>' . $comma;
+													}
+													echo trim( $output, $comma );
+												} ?>
+			                                    <!-- <a href="#" class="post-cata">React</a> -->
+			                                    <a href="single-post.html" class="post-title"><?php the_title(); ?></a>
+			                                    <div class="post-meta d-flex">
+			                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
+			                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></a>
+			                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+		                    	<?php }else{ ?>
+		                    		<div class="tab-pane fade show" id="post-<?php echo get_the_Id(); ?>" role="tabpanel" aria-labelledby="post-<?php echo get_the_Id(); ?>-tab">
+			                            <!-- Single Feature Post -->
+			                            <div class="single-feature-post video-post bg-img" style="background-image: url(<?php 
+			                            	if (has_post_thumbnail()) {
+			                            		the_post_thumbnail_url();
+			                            	}else{
+			                            		echo get_template_directory_uri().'/assets/images/noimageavailable.png';
+			                            	}
+			                            	 ?>)">
+			                                <!-- Play Button -->
+			                                <!-- <a href="#" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a> -->
+
+			                                <!-- Post Content -->
+			                                <div class="post-content">
+			                                    <a href="#" class="post-cata">React</a>
+			                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
+			                                    <div class="post-meta d-flex">
+			                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
+			                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
+			                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+		                    	<?php } endwhile; endif; ?>
+		                	</div>
+		                </div>
+
+	                	<div class="col-12 col-md-5 col-lg-3">
+		                    <ul class="nav vizew-nav-tab" role="tablist" style="outline: none;">
+		                   		<!-- custom scroll bar -->
+		                   		<div class="scrollbar" id="style-1" >
+									<div class="force-overflow"></div>
+								</div>
+								<!-- custom scroll end -->
+		                    	<?php $args = array(
+								   'category_name'=>'latest-posts',
+								    'posts_per_page'=> 10,
+								);
+								$query = new WP_Query( $args );	
+								if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
+
+								<?php if ( $query->current_post + 1 == '1' ) { ?>
+				                    	<li class="nav-item">
+				                            <a class="nav-link active" id="post-<?php echo get_the_Id(); ?>-tab" data-toggle="pill" href="#post-<?php echo get_the_Id(); ?>" role="tab" aria-controls="post-<?php echo get_the_Id(); ?>" aria-selected="true">
+				                                <!-- Single Blog Post -->
+				                                <div class="single-blog-post style-2 d-flex align-items-center">
+				                                    <div class="post-thumbnail">
+				                                    	<?php if ( has_post_thumbnail() ) { ?>
+				                                    		<img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
+				                                    	<?php }else { ?>
+				                                        	<img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimageavailable.png" alt="">
+				                                        <?php } ?>
+				                                    </div>
+				                                    <div class="post-content">
+				                                        <h6 class="post-title"><?php the_title(); ?></h6>
+				                                        <div class="post-meta d-flex justify-content-between">
+				                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
+				                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
+				                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 19</span>
+				                                        </div>
 				                                    </div>
 				                                </div>
-				                            </div>
-				                        </div>
-			                    	<?php }else{ ?>
-			                    		<div class="tab-pane fade show" id="post-<?php echo get_the_Id(); ?>" role="tabpanel" aria-labelledby="post-<?php echo get_the_Id(); ?>-tab">
-				                            <!-- Single Feature Post -->
-				                            <div class="single-feature-post video-post bg-img" style="background-image: url(<?php the_post_thumbnail_url(); ?>">
-				                                <!-- Play Button -->
-				                                <!-- <a href="#" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a> -->
+				                            </a>
+				                        </li>
+			                    <?php }else{ ?>
 
-				                                <!-- Post Content -->
-				                                <div class="post-content">
-				                                    <a href="#" class="post-cata">React</a>
-				                                    <a href="single-post.html" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
-				                                    <div class="post-meta d-flex">
-				                                        <a href="#"><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></a>
-				                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
-				                                        <a href="#"><i class="far fa-thumbs-up" aria-hidden="true"></i> 25</a>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                        </div>
-			                    	<?php } endwhile; endif; ?>
-			                	</div>
-			                </div>
-
-			                	<div class="col-12 col-md-5 col-lg-3">
-				                    <ul class="nav vizew-nav-tab" role="tablist" style="outline: none;">
-				                   		<!-- custom scroll bar -->
-				                   		<div class="scrollbar" id="style-1" >
-											<div class="force-overflow"></div>
-										</div>
-										<!-- custom scroll end -->
-				                    	<?php $args = array(
-										   'category_name'=>'latest-posts',
-										    'posts_per_page'=> 10,
-										);
-										$query = new WP_Query( $args );	
-										if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
-
-										<?php if ( $query->current_post + 1 == '1' ) { ?>
-						                    	<li class="nav-item">
-						                            <a class="nav-link active" id="post-<?php echo get_the_Id(); ?>-tab" data-toggle="pill" href="#post-<?php echo get_the_Id(); ?>" role="tab" aria-controls="post-<?php echo get_the_Id(); ?>" aria-selected="true">
-						                                <!-- Single Blog Post -->
-						                                <div class="single-blog-post style-2 d-flex align-items-center">
-						                                    <div class="post-thumbnail">
-						                                        <img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
-						                                    </div>
-						                                    <div class="post-content">
-						                                        <h6 class="post-title"><?php the_title(); ?></h6>
-						                                        <div class="post-meta d-flex justify-content-between">
-						                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
-						                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
-						                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 19</span>
-						                                        </div>
-						                                    </div>
-						                                </div>
-						                            </a>
-						                        </li>
-					                    <?php }else{ ?>
-
-					                        <li class="nav-item">
-					                            <a class="nav-link" id="post-<?php echo get_the_Id(); ?>-tab" data-toggle="pill" href="#post-<?php echo get_the_Id(); ?>" role="tab" aria-controls="post-<?php echo get_the_Id(); ?>" aria-selected="false">
-					                                <!-- Single Blog Post -->
-					                                <div class="single-blog-post style-2 d-flex align-items-center">
-					                                    <div class="post-thumbnail">
-					                                        <img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
-					                                    </div>
-					                                    <div class="post-content">
-					                                        <h6 class="post-title"><?php the_title(); ?></h6>
-					                                        <div class="post-meta d-flex justify-content-between">
-					                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
-					                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
-					                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 84</span>
-					                                        </div>
-					                                    </div>
-					                                </div>
-					                            </a>
-					                        </li>
-					                    <?php } endwhile; endif; ?>
-				                    </ul>
-				                </div>
-		            		</div>
-		      			</div>
+			                        <li class="nav-item">
+			                            <a class="nav-link" id="post-<?php echo get_the_Id(); ?>-tab" data-toggle="pill" href="#post-<?php echo get_the_Id(); ?>" role="tab" aria-controls="post-<?php echo get_the_Id(); ?>" aria-selected="false">
+			                                <!-- Single Blog Post -->
+			                                <div class="single-blog-post style-2 d-flex align-items-center">
+			                                    <div class="post-thumbnail">
+			                                        <?php if ( has_post_thumbnail() ) { ?>
+				                                    		<img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
+				                                    	<?php }else { ?>
+				                                        	<img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimageavailable.png" alt="">
+				                                        <?php } ?>
+			                                    </div>
+			                                    <div class="post-content">
+			                                        <h6 class="post-title"><?php the_title(); ?></h6>
+			                                        <div class="post-meta d-flex justify-content-between">
+			                                            <span><i class="far fa-comments" aria-hidden="true"></i> <?php echo get_comments_number(); ?></span>
+			                                            <span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo wpb_get_post_views( get_the_ID() ); ?></span>
+			                                            <span><i class="far fa-thumbs-up" aria-hidden="true"></i> 84</span>
+			                                        </div>
+			                                    </div>
+			                                </div>
+			                            </a>
+			                        </li>
+			                    <?php } endwhile; endif; ?>
+		                    </ul>
+		                </div>
+		      		</div>
 		        </div>
 		    </section>
 		</section>
 <?php }elseif ( get_theme_mod('homepage_main_setting') == 'slider' ) { ?>
 		<section class="slider mb-5">
 			<div class="container">
-				<!-- <div class="heading">
-						<h4 class="text-uppercase">Latest stories<a class="heading-link" href="">See More</a></h4>
-				</div> -->
-				
 				<div class="row">
 					<div class="col-12 pr-0">
 						<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -146,7 +160,13 @@
 								if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
 								<?php if ( $query->current_post + 1 == '1' ) { ?>
 									<div class="carousel-item active">
-										<a href="<?php the_permalink(); ?>"><img src="<?php echo the_post_thumbnail_url(); ?>" class="d-block w-100" alt="..." style="height: 477px;"></a>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) { ?>
+												<img src="<?php echo the_post_thumbnail_url(); ?>" class="d-block w-100" alt="..." style="height: 477px;">
+											<?php }else{ ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" class="d-block w-100" alt="..." style="height: 477px;">
+										<?php } ?>
+										</a>
 										<div class="slidertext">
 											<h5><?php the_title(); ?></h5>
 										</div>
@@ -190,7 +210,11 @@
 								<div class="gallery-item">
 									<div class="grid-item-holder">	
 										<div class="listing-item-grid">
-											<img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>" alt="image1">
+											<?php if ( has_post_thumbnail() ) { ?>
+												<img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>" alt="image1">
+											<?php }else{ ?>
+												<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" alt="image1">
+											<?php } ?>
 											<div class="listing-counter">
 											<?php
 											$categories = get_the_category();
@@ -219,7 +243,11 @@
 								<div class="gallery-item">
 									<div class="grid-item-holder">
 										<div class="listing-item-grid">
-											<img class="gallery1" src="<?php the_post_thumbnail_url(); ?>" alt="image1">
+											<?php if ( has_post_thumbnail() ) { ?>
+												<img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>" alt="image1">
+											<?php }else{ ?>
+												<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/noimageavailable.png" alt="image1">
+											<?php } ?>
 											<div class="listing-counter">
 												<?php
 											$categories = get_the_category();
@@ -260,7 +288,8 @@
 		<div class="row">
 			<div class="col-9">
 			<?php query_posts(array(
-				'posts_per_page'	=>	get_theme_mod('homepage_posts_limit_setting'),
+				// 'posts_per_page'	=>	get_theme_mod('homepage_posts_limit_setting'),
+				'posts_per_page'	=>	9,
 				'orderby'			=>	'date',
 				'order'				=>	'DESC',
 				// 'cat'				=>	'-1',
@@ -270,12 +299,14 @@
 						<div class="wrapper">
 							<div class="row">
 								<div class="col-3">
-									<?php if ( has_post_thumbnail() ) { ?>
-										<div class="sideimage">
-											<?php //the_post_thumbnail('thumbnail'); ?>
+									<div class="sideimage">
+										<?php if ( has_post_thumbnail() ) { ?>
 											<img src="<?php the_post_thumbnail_url(); ?>" alt="image1">
-										</div>
-									<?php } ?>
+										<?php }else{ ?>
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimageavailable.png">
+										<?php } ?>
+									</div>
+									
 								</div>
 								<div class="col-9">
 									<div class="text">
@@ -357,8 +388,6 @@
 						<span class="count">Followers</span>
 					</a>
 				</div>
-
-
 			</div>
 		</div>
 	</div>
@@ -380,7 +409,11 @@
 				<div class="col-3 ">
 					<div class="wrapper">
 						<div class="topimage">
-							<img class="img-fluid listing-image" src="<?php the_post_thumbnail_url(); ?>" alt="image">
+							<?php if (has_post_thumbnail()) { ?>
+								<img class="img-fluid listing-image" src="<?php the_post_thumbnail_url(); ?>" alt="image">
+							<?php }else { ?>
+								<img class="img-fluid listing-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/noimageavailable.png" alt="image">
+							<?php } ?>
 						</div>
 						<div class="inner-text">
 							<div class="row m-0 pt-1">

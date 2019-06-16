@@ -22,7 +22,7 @@ function wpdocs_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 // Control Excerpt [...] string using read more
 function wpdocs_excerpt_more( $more ) {
-    return '<a href="'.get_the_permalink().'" rel="nofollow"> '.get_theme_mod('homepage_posts_readmore_setting').'</a>';
+    return '<a class="js-link" href="'.get_the_permalink().'" rel="nofollow"> '.get_theme_mod('homepage_posts_readmore_setting').'</a>';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
@@ -55,9 +55,7 @@ function wpb_get_post_views($postID){
     return $count.' Views';
 }
 
-//Li Class for Nav
-function add_classes_on_li($classes, $item, $args) {
-  $classes[] = 'nav-item1';
-  return $classes;
-}
-add_filter('nav_menu_css_class','add_classes_on_li',1,3);
+
+
+
+
